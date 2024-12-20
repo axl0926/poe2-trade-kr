@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Trade Data Fetcher",
+  "version": "1.0",
+  "description": "A Chrome extension to fetch and store trade data.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.pathofexile.com/trade2/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.pathofexile.com/trade2/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data.json"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
